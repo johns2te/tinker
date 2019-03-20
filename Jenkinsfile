@@ -28,7 +28,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        container'maven'){
+        container('maven'){
         echo "TODO - build and push image"
         sh 'maven --version'
         unstash 'app'
