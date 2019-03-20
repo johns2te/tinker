@@ -7,6 +7,9 @@ pipeline {
   stages {
     stage('Test') {
             agent {label 'nodejs-app'}
+        when {
+        branch 'master'
+      }
       steps {
         checkout scm
         container('nodejs'){
