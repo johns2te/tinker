@@ -7,9 +7,6 @@ pipeline {
   stages {
     stage('Test') {
             agent {label 'nodejs-app'}
-        when {
-        branch 'master'
-      }
       steps {
         checkout scm
         container('nodejs'){
@@ -28,7 +25,6 @@ pipeline {
       agent {label 'maven'}
       when {
         beforeAgent true
-        branch 'master'
       }
       steps {
         container('maven'){
@@ -47,7 +43,6 @@ pipeline {
   stage('Deploy') {
       when {
         beforeAgent true
-        branch 'master'
       }
       options {
         timeout(time: 60, unit: 'SECONDS')
