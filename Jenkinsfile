@@ -5,14 +5,24 @@ pipeline {
     skipDefaultCheckout true
   }
   stages {
-    stage('Test') {
-            agent {label 'nodejs-app'}
-      steps {
-        checkout scm
-        container('nodejs'){
-        echo 'Hello World!'   
-        sh 'node --version'
-        }
+    stage('Tests') {
+          Parallel{
+            stage('Test On Windows'){
+             agent {label 'nodejs-app'}
+              checkout scm
+              container('nodejs'){
+              echo 'Window.... Door...'   
+              sh 'node --version'
+              }
+            },
+            stage('Test On Linux'){
+             agent {label 'nodejs-app'}
+              checkout scm
+              container('nodejs'){
+              echo 'Testy mc test test'   
+              sh 'node --version'
+              }
+            }
       }
       post {
         success {
