@@ -22,9 +22,8 @@ pipeline {
     }
    
   stage('Build and Push Image') {
-      agent {label 'maven'}
       steps {
-        container('maven'){
+      
         echo "TODO - build and push image"
         sh 'maven --version'
         unstash 'app'
