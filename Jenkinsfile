@@ -27,7 +27,7 @@ pipeline {
         echo "TODO - build and push image"
         sh 'maven --version'
         unstash 'app'
-        }
+        
       }
       post {
         success {
