@@ -9,17 +9,17 @@ pipeline {
           Parallel{
             stage('Test On Windows'){
              agent {label 'nodejs-app'}
-               steps{
+               steps {
                 checkout scm
                 container('nodejs'){
                 echo 'Window.... Door...'   
                 sh 'node --version'
                 }
                }
-            },
+            }
             stage('Test On Linux'){
              agent {label 'nodejs-app'}
-               steps{
+               steps {
                  checkout scm
                  container('nodejs'){
                  echo 'Testy mc test test'   
