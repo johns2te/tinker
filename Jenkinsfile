@@ -6,8 +6,7 @@ pipeline {
   }
   stages {
     stage('Tests') {
-        steps {
-          Parallel{
+          parallel{
             stage('Test On Windows'){
              agent {label 'nodejs-app'}
                steps {
@@ -34,7 +33,6 @@ pipeline {
               stash name: 'app', includes: '*.js, public/**, views/*, Dockerfile'
            }
           } 
-        }
     }
    
   stage('Build and Push Image') {
