@@ -23,9 +23,6 @@ pipeline {
    
   stage('Build and Push Image') {
       agent {label 'maven'}
-      when {
-        beforeAgent true
-      }
       steps {
         container('maven'){
         echo "TODO - build and push image"
@@ -41,9 +38,6 @@ pipeline {
     }
    
   stage('Deploy') {
-      when {
-        beforeAgent true
-      }
       options {
         timeout(time: 60, unit: 'SECONDS')
       }
