@@ -39,6 +39,7 @@ pipeline {
   stage('Build and Push Image') {
       agent any
       steps {
+        checkout scm
         build()
         unstash 'app'
         
