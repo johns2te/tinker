@@ -39,7 +39,7 @@ pipeline {
   stage('Build and Push Image') {
       agent any
       steps {
-        build()
+        buildtinker()
         unstash 'app'
         
       }
