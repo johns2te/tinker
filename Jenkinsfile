@@ -1,4 +1,4 @@
-@Library ('SHARED_LIBRARY')
+library 'SHARED_LIBRARY'
 pipeline {
   agent none
   options { 
