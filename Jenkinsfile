@@ -1,3 +1,4 @@
+@Library('SHARED_LIBRARY')
 pipeline {
   agent none
   options { 
@@ -38,7 +39,7 @@ pipeline {
   stage('Build and Push Image') {
       agent any
       steps {
-        echo "TODO - build and push image"
+        build()
         unstash 'app'
         
       }
