@@ -9,13 +9,9 @@ pipeline {
     stage('Tests') {
           parallel{
             stage('Test On Windows'){
-             agent {label 'nodejs-app'}
                steps {
                 checkout scm
-                container('nodejs'){
                 echo 'Window.... Door...'   
-                sh 'node --version'
-                }
                }
                post {
            success {
