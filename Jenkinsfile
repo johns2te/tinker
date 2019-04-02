@@ -9,6 +9,7 @@ pipeline {
     stage('Tests') {
           parallel{
             stage('Test On Windows'){
+              agent any
                steps {
                 checkout scm
                 echo 'Window.... Door...'   
